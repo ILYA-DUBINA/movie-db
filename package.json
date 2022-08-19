@@ -21,7 +21,7 @@
     "lint:fix": "npm run lint -- --fix --color",
     "prettier": "prettier --config .prettierrc",
     "format": "npm run prettier -- --write ./src",
-    "prepare": "husky install"   
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -41,13 +41,13 @@
       "last 1 safari version"
     ]
   },
-   "lint-staged": {
+  "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css}": [
       "npm run lint:fix",
       "format",
       "git add"
     ]
-   },
+  },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^8.22.0",
@@ -55,6 +55,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.1",

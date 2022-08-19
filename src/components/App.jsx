@@ -1,50 +1,39 @@
 import React, { Component } from 'react';
-import AppMovieCards from './body/AppMovieCards';
 
 import SwapiService from '../services/swapi-service';
+
+import AppMovieCards from './body/AppMovieCards';
 
 import './App.css';
 
 export default class App extends Component {
-
-  constructor(){
-    super();  
+  constructor() {
+    super();
 
     this.swapiService = new SwapiService();
 
     this.state = {
       arrayMovie: null,
-      isLoading: true
+      isLoading: true,
     };
 
-    // this.searchMovies();
-    // this.componentDidMount();
-    // this.componentWillUnmount();
-  }
-
-  searchMovies = () => {        
-    this.swapiService.getAllMovies()
-      .then((result) => {       
+    this.searchMovies = () => {
+      this.swapiService.getAllMovies().then((result) => {
         this.setState({
           arrayMovie: result,
-          isLoading: false     
-        })
-      })
+          isLoading: false,
+        });
+      });
+    };
   }
 
-  componentDidMount() {    
+  componentDidMount() {
     setTimeout(() => this.searchMovies(), 0);
   }
-  
 
-  render(){
+  render() {
     const { isLoading } = this.state;
 
-    return (
-      <div className='container'>      
-        {isLoading ? null : <AppMovieCards data={this.state.arrayMovie} />}
-      </div>
-    );
+    return <div className="container">{isLoading ? null : <AppMovieCards data={this.state.arrayMovie} />}</div>;
   }
 }
-
